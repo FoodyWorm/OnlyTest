@@ -13,4 +13,7 @@
 2021-06-27 Serial
 -> 시리얼 통신
 
+2021-07-19 MQTT, Synchronous
+-> MQTT통신 테스트
+-> Synchronous 동기 테스트
 

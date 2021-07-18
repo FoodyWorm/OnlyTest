@@ -1,8 +1,12 @@
 {
   "dependencies": {
+    "aedes": "^0.46.1",
     "crc": "^3.8.0",
     "dgram": "^1.0.1",
     "hex-encode-decode": "^1.0.0",
+    "http": "0.0.1-security",
+    "mqtt": "^4.2.8",
+    "net": "^1.0.2",
     "serialport": "^9.2.0"
   }
 }
