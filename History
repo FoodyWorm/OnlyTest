@@ -17,3 +17,5 @@
 -> MQTT통신 테스트
 -> Synchronous 동기 테스트
 
+2021-07-20 Asynchronous
+-> Asynchronous 비동기 테스트
