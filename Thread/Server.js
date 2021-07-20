@@ -18,3 +18,5 @@ server.listen(port, (err) => {
 });
 
 
+// 명령어: ps로 프로세스의 생성 여부를 확인
+
