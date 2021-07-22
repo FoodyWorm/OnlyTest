@@ -23,3 +23,8 @@
 2021-07-20 Thread - Process, Single
 -> 프로세스 테스트
 -> 단일 스레드 테스트
+
+2021-07-22 MicroService - Client, Server, Distributor
+-> Client 제작
+-> Server 제작
+-> Distributor 제작

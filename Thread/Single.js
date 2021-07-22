@@ -20,4 +20,5 @@ catch (err) {
 // 프로세스 오류 캐치 함수
 process.on('uncaughtException', (err) => {
     if (err) console.error(err.message);
-})
+});
+
