@@ -6,25 +6,37 @@
 -> git remote
 -> git push
 
+
 2021-06-27 TCP, UDP
 -> UDP 송수신
 -> TCP 송수신
 
+
 2021-06-27 Serial
 -> 시리얼 통신
+
 
 2021-07-19 MQTT, Synchronous
 -> MQTT통신 테스트
 -> Synchronous 동기 테스트
 
+
 2021-07-20 Asynchronous
 -> Asynchronous 비동기 테스트
+
 
 2021-07-20 Thread - Process, Single
 -> 프로세스 테스트
 -> 단일 스레드 테스트
 
+
 2021-07-22 MicroService - Client, Server, Distributor
 -> Client 제작
 -> Server 제작
 -> Distributor 제작
+
+
+2021-07-24 new_Object & extends
+-> new Object() 테스트
+-> extends와 super() 테스트
+
