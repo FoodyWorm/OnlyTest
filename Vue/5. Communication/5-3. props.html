@@ -1,0 +1,85 @@
+<html lang="ko">
+    <head>
+        <title>Vue Sample</title>
+        <meta charset="UTF-8">
+        <link rel="icon" type="image/png" href="http://example.com/myicon.png">
+        <profile="http://www.w3.org/2005/10/profile"></profile>
+    </head>
+
+    <body>
+        <h3> Props </h3>
+        <div id="false">
+            <hr>
+              같은 등급의 컴포넌트 끼리는 데이터 전달이 불가능
+              <!-- Top-Component -->
+              <top-Component v-bind:propsdata="top"></top-Component>
+
+              <!-- Bottom Commponent -->
+              <bottom-Component></bottom-Component>
+              
+            <hr>
+        </div>
+
+        <div id="true">
+          <hr>
+            부모 컴포넌트가 자식 컴포넌트에게 데이터를 전달할 경우에만 가능 <br />
+            <!-- Main -->
+            부모 컴포넌트: {{ message }}
+            <!-- Child -->
+            <child-component v-bind:text="message"></child-component>
+
+            
+          <hr>
+      </div>
+       
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+        <script>
+            // TOP
+            Vue.component('top-component', {
+              template: '<div>Top Data: {{ top }}</div>',
+              data() {
+                return {
+                  top: 'Top-Data'
+                }
+              }
+            })
+
+            // BOTTOM
+            Vue.component('bottom-component', {
+              template: '<div>Bottom Data: {{ propsdata }}</div>',
+              props: ['propsdata']
+            })
+
+            // 메인 인스턴스 false
+            new Vue({
+                el: '#false'
+            })
+
+
+            // 자식 컴포넌트
+            var child = {
+              template: '<div>자식 컴포넌트: {{ getData }}</div>',
+              props: ['text'],
+              data() {
+                return {
+                  getData: this.$props.text
+                }
+              }
+            }
+
+            // 메인 컴포넌트 (feat. Instance) - 일명, Root컴포넌트
+            new Vue({
+                el: '#true',
+                data() {
+                  return {
+                    message: 'Hello'
+                  }
+                },
+                components: {
+                'child-component': child
+              }
+            })
+
+        </script>
+    </body>
+</html>

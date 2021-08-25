@@ -1,0 +1,51 @@
+<html lang="ko">
+    <head>
+        <title>Vue Sample</title>
+        <meta charset="UTF-8">
+        <link rel="icon" type="image/png" href="http://example.com/myicon.png">
+        <profile="http://www.w3.org/2005/10/profile"></profile>
+    </head>
+
+    <body>
+        <h3> Vue 인스턴스 (메인컴포넌트)</h3>
+        <div id="app">
+            <my-local-component1></my-local-component1> <!-- First Data -->
+            <my-local-component2></my-local-component2> <!-- None  -->            
+        </div> 
+       
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+        <script>
+         
+
+            // 지역 컴포넌트 1
+            var local_Component_1 = {
+                template: '<div> 지역 컴포넌트 1의 값: {{ text1 }}</div>',
+                data: function() {
+                  return {
+                    text1: 'First Data'
+                  }
+                }
+            }
+
+            // 지역 컴포넌트 2
+            var local_Component_2 = {
+                template: '<div> 지역 컴포넌트 2의 값: {{ text2 }}</div>',
+                data: function() {
+                  return {
+                    text2: local_Component_1.data.text
+                  }
+                }
+            }
+
+            // 메인 인스턴스
+            new Vue({
+                el: '#app',        
+                components: {
+                    'my-local-component1': local_Component_1,
+                    'my-local-component2': local_Component_2,
+                }
+            })
+
+        </script>
+    </body>
+</html>

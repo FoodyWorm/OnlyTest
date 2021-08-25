@@ -10,6 +10,7 @@ class test_Funcs {
 }
 
 new test_Funcs();
+new test_Funcs().NameLog("Parent Object");
 
 // 테스트용 메인 오브젝트 생성 및 함수 클래스 상속
 class test_Object extends test_Funcs {

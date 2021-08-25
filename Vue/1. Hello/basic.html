@@ -1,0 +1,44 @@
+<!-- View -->
+<html lang="ko">
+    <head>
+        <title>Vue Sample</title>
+        <meta charset="UTF-8">
+        <!-- Failed to load resource: the server responded with a status of 404 (Not Found) 문제를 해결하기 위한 코드 -->
+        <!-- 아이콘이 없어서 발생하는 문제로, 아래와 같이 아이콘을 추가 -->
+        <link rel="icon" type="image/png" href="http://example.com/myicon.png">
+        <profile="http://www.w3.org/2005/10/profile"></profile>
+    </head>
+
+    <body>
+        <!-- div라는 View에 / 뷰 모델을 활용하여 / 데이터를 바인딩함 -->
+        <!-- id가 app에 해당되는 것을 div에 적용 / 그래서 뷰가 적용됨 -->
+        <div id="app">
+            <!-- 뷰 객체에서 message에 해당되는 데이터를 출력  / {{ }}이 괄호는 이중콧수염 괄호라고 함. /  뷰 데이터를 보여주는 방법 중 1가지 -->
+            {{ message }}
+        </div>
+
+        
+
+        <!-- 뷰를 사용하기 위해 파일을 불러옴 -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+
+        <!-- Model -->
+        <script>
+
+            //<!--  Vue Model  -->
+            // new로 뷰 객체를 생성하여 이 HTML파일에 적용함 
+            // ({ })의 중괄호 안에 옵션을 추가 가능 el, data 등...
+            new Vue({
+                // 뷰 객체의 id
+                el: '#app',
+
+                // 뷰 객체의 data
+                data: {
+                    // 메시지의 내용은 'Hello Vue.js'
+                    message: 'Hello Vue.js!'
+                }
+            });
+
+        </script>
+    </body>
+</html>

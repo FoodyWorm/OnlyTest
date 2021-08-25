@@ -1,0 +1,93 @@
+<html lang="ko">
+    <head>
+        <title>Vue Sample</title>
+        <meta charset="UTF-8">
+        <link rel="icon" type="image/png" href="http://example.com/myicon.png">
+        <profile="http://www.w3.org/2005/10/profile"></profile>
+    </head>
+
+    <body>
+        <h3> Vue 인스턴스 (메인컴포넌트)</h3>
+        <div id="app">
+            <hr>
+              <!-- 지역 컴포넌트는 props와 eventBus 기능 사용이 안된다. -->
+              <my-local-component1></my-local-component1> <!-- First Data -->
+              <my-local-component2></my-local-component2> <!-- None  -->
+            <hr>
+
+            <hr>
+              <my-component></my-component>
+
+              <!-- Top-Component -->
+              <Top-Component></Top-Component>
+              <!-- Bottom Commponent -->
+              <Bottom-Component></Bottom-Component>
+            <hr>
+        </div> 
+       
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+        <script>
+            // 지역 컴포넌트 1
+            var local_Component_1 = {
+                template: '<div> 지역 컴포넌트 1의 값: {{ text1 }}</div>',
+                data: function() {
+                  return {
+                    text1: 'First Data'
+                  }
+                },
+                
+            }
+
+            // 지역 컴포넌트 2
+            var local_Component_2 = {
+                template: '<div> 지역 컴포넌트 2의 값: {{ propData }}</div>',
+                props: ['text2'],
+                data() {
+                  return {
+                    propData: this.text2
+                  }
+                }
+            }
+
+            // 전역 컴포넌트
+            Vue.component('my-component', {
+                template: '<div> 전역 컴포넌트가 등록되었습니다.</div>{{ top }}',
+                data() {
+                  return {
+                    top: 'Top Data'
+                }
+              }
+            })
+
+            // 전역 컴포넌트 1
+            Vue.component('Top-Component', {
+              template: '<div>{{ top }}</div>',
+              data() {
+                return {
+                  top: 'Top Data'
+                }
+              }
+            })
+
+            // 전역 컴포넌트 2
+            Vue.component('Bottom-Component', {
+              template: '<div>{{ Bottom }}</div>',
+              data() {
+                return {
+                  Bottom: 'Bottom_Data'
+                }
+              }
+            })
+
+            // 메인 인스턴스
+            new Vue({
+                el: '#app',        
+                components: {
+                    'my-local-component1': local_Component_1,
+                    'my-local-component2': local_Component_2,
+                }
+            })
+
+        </script>
+    </body>
+</html>

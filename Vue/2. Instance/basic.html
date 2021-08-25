@@ -1,0 +1,33 @@
+<html lang="ko">
+    <head>
+        <title>Vue Sample</title>
+        <meta charset="UTF-8">
+        <link rel="icon" type="image/png" href="http://example.com/myicon.png">
+        <profile="http://www.w3.org/2005/10/profile"></profile>
+    </head>
+
+    <body>
+        <!-- /// app 인스턴스의 유효범위 /// -->
+        <!-- 4. #app에 해당하는 id를 가지고 있기에 <div>에 인스턴스가 적용 (데이터 포함) -->
+        <div id="app">
+            <!-- 5. 데이터 적용 후 사용자에게 정보 표시 -->
+            {{ message }}
+        </div>
+        <!-- /// app 인스턴스의 유효범위 /// -->
+
+        <!-- 1. 뷰 라이브러리 파일 로딩 -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+        <script>
+
+            // 2. Instance 객체 생성
+            new Vue({
+                // 3. Property or Methods 등의 옵션 추가
+                el: '#app', // '#'을 잊지말고 기입하기 / '#'은 해당 id를 가진 DOM요소를 검색하는데 사용
+                data: {
+                    message: 'Hello Vue.js!'
+                }
+            });
+
+        </script>
+    </body>
+</html>

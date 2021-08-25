@@ -1,0 +1,52 @@
+<html lang="ko">
+    <head>
+        <title>Vue Sample</title>
+        <meta charset="UTF-8">
+        <link rel="icon" type="image/png" href="http://example.com/myicon.png">
+        <profile="http://www.w3.org/2005/10/profile"></profile>
+    </head>
+
+    <body>
+        
+        <div id="app">
+            <p>- 메인 컴포넌트 -
+            <br />{{ message }}</p> 
+
+            - 메인 컴포넌트의 전역 컴포넌트 -
+            <my-component>
+            </my-component> <!-- my-component의 전역 컴포넌트 내용으로 전부 변환됨 <div> 등등 -->                                                                                                             
+            
+            <p>- 메인 컴포넌트의 지역 컴포넌트 -
+            <my-local-component></my-local-component><p></p>
+            
+        </div> 
+       
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+        <script>
+            // 전역 컴포넌트
+            Vue.component('my-component', {
+                template: '<div> 전역 컴포넌트가 등록되었습니다.</div>'
+            })
+
+            // 지역 컴포넌트
+            var local_Component = {
+                template: '<div> 지역 컴포넌트가 등록되었습니다.</div>'
+            }
+
+            // 메인 컴포넌트
+            new Vue({
+                el: '#app',
+                data: function() {
+                    return {
+                        message: 'Hello World'
+                    }
+                },
+                components: {
+                    'my-local-component': local_Component
+                }
+            })
+            
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,64 @@
+<html lang="ko">
+    <head>
+        <title>Vue Sample</title>
+        <meta charset="UTF-8">
+        <link rel="icon" type="image/png" href="http://example.com/myicon.png">
+        <profile="http://www.w3.org/2005/10/profile"></profile>
+    </head>
+
+    <body>
+        <!-- Parent Component -->
+        <h3> Event Emit </h3>
+        <div id="app">
+              부모 컴포넌트: {{ message }}
+              / 자식에게 받은 데이터: {{ message2 }}
+
+            <!-- Child Component -->
+            <hr>
+              <!-- v-on 또한 Vue의 기능으로 인스턴스의 범위 내에서만 작동한다. 주의하자! -->
+              <child-component v-on:send-data="getData(this)"></child-component>
+            <hr>
+        </div>
+
+   
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+        <script>
+            var child = {
+              template: '<div>자식 컴포넌트: {{ childData }} <button v-on:click="sendData">Send Data</button> </div>',
+              data() {
+                return {
+                  childData: "Child Data"
+                }
+              },
+              methods: {
+                sendData: function() {
+                  console.log('Send Data');
+                  this.$emit('send-data'); // this.$emit('자식컴포넌트가 감지할 이벤트명');
+                },
+              },
+            }
+
+            // 메인 컴포넌트 (feat. Instance) - 일명, Root컴포넌트
+            new Vue({
+                el: '#app',
+                data() {
+                  return {
+                    message: 'Hello',
+                    message2: ''
+                  }
+                },
+                components: {
+                  'child-component': child
+                },
+                methods: {
+                  getData(params) {
+                    console.log('Get Data')
+                    console.log(params)
+                    this.message2 = params
+                  },
+                },
+            })
+
+        </script>
+    </body>
+</html>
