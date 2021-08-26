@@ -51,4 +51,11 @@
 2021-08-16 Vue - Component, Communication 
 -> Component 예제 제작
 -> Communication 예제 제작
--> Router 폴더 제작 
+-> Router 폴더 제작
+
+2021-08-26 Vue - 관련 폴더 정리 
+-> HTTP 폴더 제작
+-> Template 폴더 제작 
+-> Projects 폴더 제작 
+-> TodoList 폴더 제작 
+-> TodoList(Vuex) 폴더 제작 
