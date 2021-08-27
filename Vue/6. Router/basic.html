@@ -1,1 +1,59 @@
-test2asd
+<html lang="ko">
+    <head>
+        <title>Vue Sample</title>
+        <meta charset="UTF-8">
+        <link rel="icon" type="image/png" href="http://example.com/myicon.png">
+        <profile="http://www.w3.org/2005/10/profile"></profile>
+    </head>
+
+    <body>
+        <!-- Parent Component -->
+        <h3>Vue Router</h3>
+        <div id="app">
+            <!-- Child Component 1 -->
+            <router-link to="/child1">Child Component1</router-link>
+            
+            <!-- Child Component 2 -->
+            <router-link to="/child2">Child Component1</router-link>
+        
+            <!-- Vue Router-->
+            <router-view></router-view>
+        </div>
+
+   
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+        <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+        <script>
+            // 자식 컴포넌트 1
+            var child1 = {
+              template: '<div> 자식 컴포넌트 </div>'
+            }
+
+            // 자식 컴포넌트 2
+            var child2 = {
+              template: '<div>자식 컴포넌트</div>'
+            }
+
+            // 원하는 요청 path, compoent를 routers에 정리 - 객체 생성을 위한 옵션 및 깔끔하게 보이기 위해서
+            var routers = [
+                { path: '/child1', component: child1 },
+                { path: '/child2', component: child2 } 
+            ]
+
+            // 정리한 routers를 VueRouter객체로 생성 - 실질적으로 라우팅 기능을 사용하기 위함
+            
+
+
+
+            // 메인 컴포넌트
+            new Vue({
+                el: '#app',
+                components: {
+                  'child-component1': child1,
+                  'child-component2': child2,
+                }
+            })
+
+        </script>
+    </body>
+</html>
