@@ -1,58 +1,64 @@
 <html lang="ko">
     <head>
         <title>Vue Sample</title>
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/png" href="http://example.com/myicon.png">
         <profile="http://www.w3.org/2005/10/profile"></profile>
     </head>
 
     <body>
         <!-- Parent Component -->
-        <h3>Vue Router</h3>
         <div id="app">
-            <!-- Child Component 1 -->
-            <router-link to="/child1">Child Component1</router-link>
-            
-            <!-- Child Component 2 -->
-            <router-link to="/child2">Child Component1</router-link>
-        
-            <!-- Vue Router-->
+            <h3>Vue Router</h3>
+            <p>
+                <!-- Child Component 1 -->
+                <router-link to="/child1">Child Component1</router-link>
+                
+                <!-- Child Component 2 -->
+                <router-link to="/child2">Child Component2</router-link>
+            </p>
+
+            <!-- Vue Router: URL값이 갱신되는 영역 -->
             <router-view></router-view>
         </div>
 
-   
+  
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
-        <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+        <script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
         <script>
             // 자식 컴포넌트 1
             var child1 = {
-              template: '<div> 자식 컴포넌트 </div>'
-            }
+              template: '<div> 자식 컴포넌트1 </div>'
+            };
 
             // 자식 컴포넌트 2
             var child2 = {
-              template: '<div>자식 컴포넌트</div>'
-            }
+              template: '<div>자식 컴포넌트2</div>'
+            };
 
             // 원하는 요청 path, compoent를 routers에 정리 - 객체 생성을 위한 옵션 및 깔끔하게 보이기 위해서
-            var routers = [
+            var routes = [
                 { path: '/child1', component: child1 },
                 { path: '/child2', component: child2 } 
-            ]
+            ];
 
             // 정리한 routers를 VueRouter객체로 생성 - 실질적으로 라우팅 기능을 사용하기 위함
-            
+            var router = new VueRouter({
+                // mode: 'history', // URL의 #값을 없애줌 -> 하지만, URL을 다시 기입하면 요청을 인식하지 못함
+                routes
+            });
 
-
-
-            // 메인 컴포넌트
-            new Vue({
+            /*/ 메인 컴포넌트
+            var app = new Vue({
                 el: '#app',
-                components: {
-                  'child-component1': child1,
-                  'child-component2': child2,
-                }
-            })
+                router
+            });*/
+
+            // 다른 방법
+            var app = new Vue({
+                router
+            }).$mount('#app')
 
         </script>
     </body>

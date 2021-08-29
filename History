@@ -35,27 +35,36 @@
 -> Server 제작
 -> Distributor 제작
 
+
 2021-07-24 new_Object & extends
 -> new Object() 테스트
 -> extends와 super() 테스트
+
 
 2021-08-14 Vue - Hello, Instance, Life Cycle
 -> Hello 예제 제작
 -> Instance 예제 제작
 -> Life Cycle 예제 제작
 
+
 2021-08-14 MicroService - Example Upload, Monolithic service
 -> 마이크로 공작소의 예자 파일 등록
 -> 모놀리식 서비스 구현
+
 
 2021-08-16 Vue - Component, Communication 
 -> Component 예제 제작
 -> Communication 예제 제작
 -> Router 폴더 제작
 
+
 2021-08-26 Vue - 관련 폴더 정리 
 -> HTTP 폴더 제작
 -> Template 폴더 제작 
 -> Projects 폴더 제작 
 -> TodoList 폴더 제작 
--> TodoList(Vuex) 폴더 제작 
+-> TodoList(Vuex) 폴더 제작
+
+
+2021-08-29 Vue - Router (basic)
+-> Router 기본 예제 제작
